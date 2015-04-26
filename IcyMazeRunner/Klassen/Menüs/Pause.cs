@@ -9,7 +9,7 @@ using IcyMazeRunner.Klassen;
 
 namespace IcyMazeRunner.Klassen.Menüs
 {
-    class InGameMenu
+    class pause : GameStates
     {
         /* unnötige Variablen?? */
         View vMenuView;
@@ -69,21 +69,50 @@ namespace IcyMazeRunner.Klassen.Menüs
             return closeMenu;
         }
 
-        public void loadContent()
+        public void initialize()
         {
-            // Hintergrund laden
-
-
-        }
-
-        /* ~~~~ Konstruktor ~~~~*/
-        public InGameMenu(Player Runner)
-        {
-            // Initialisieren der Steuerungsvariablen
             select = 2;
             isPressed = false;
             closeMenu = false;
 
+ 
+
+
+            float scaleX = 0.9f;
+            float scaleY = 0.9f;
+            float xCoord =  0; //Runner.getXPosition() - 595;
+            float yCoord = 0;  //Runner.getYPosition() - 360;
+
+            // Position und Skalierung der einzelnen Texturen und Sprites
+            spMenuBackground.Position = new Vector2f(xCoord, yCoord);
+            spMenuBackground.Scale = new Vector2f(scaleX, scaleY);
+
+            spMenuHeader.Position = new Vector2f(xCoord, yCoord);
+            spMenuHeader.Scale = new Vector2f(scaleX, scaleY);
+
+            spContinue.Position = new Vector2f(xCoord, yCoord);
+            spContinue.Scale = new Vector2f(scaleX, scaleY);
+
+            spGoMainMenu.Position = new Vector2f(xCoord, yCoord);
+            spGoMainMenu.Scale = new Vector2f(scaleX, scaleY);
+
+            spControls.Position = new Vector2f(xCoord, yCoord);
+            spControls.Scale = new Vector2f(scaleX, scaleY);
+
+            //Beinhaltet momentan "worldmap" was load-funktion beinhalten könnte
+            spLoadGame.Position = new Vector2f(xCoord, yCoord);
+            spLoadGame.Scale = new Vector2f(scaleX, scaleY);
+
+            /* für später
+            SaveGameSprite.Position = new Vector2f(xCoord, yCoord); 
+            SaveGameSprite.Scale = new Vector2f(scaleX, scaleY);           
+            */
+
+        }
+
+        public void loadContent()
+        {
+            // Hintergrund laden
             spMenuBackground = new Sprite(txMenuBackground);
             spMenuHeader = new Sprite(txMenuHeader);
             spContinue = new Sprite(txContinueSelected);
@@ -92,39 +121,14 @@ namespace IcyMazeRunner.Klassen.Menüs
             spLoadGame = new Sprite(txLoadGameNotSelected);
             SaveGameSprite = new Sprite(txSaveGameNotSelected);
 
-
-            float scaleX = 0.9f;
-            float scaleY = 0.9f;
-            float xCoord = Runner.getXPosition()-595;  
-            float yCoord = Runner.getYPosition() - 360; 
-
-           // Position und Skalierung der einzelnen Texturen und Sprites
-            spMenuBackground.Position = new Vector2f(xCoord, yCoord); 
-            spMenuBackground.Scale = new Vector2f(scaleX, scaleY);
-
-            spMenuHeader.Position = new Vector2f(xCoord, yCoord); 
-            spMenuHeader.Scale = new Vector2f(scaleX, scaleY);
-
-            spContinue.Position = new Vector2f(xCoord, yCoord); 
-            spContinue.Scale = new Vector2f(scaleX, scaleY);
-
-            spGoMainMenu.Position = new Vector2f(xCoord, yCoord); 
-            spGoMainMenu.Scale = new Vector2f(scaleX, scaleY);
-
-            spControls.Position = new Vector2f(xCoord, yCoord);
-            spControls.Scale = new Vector2f(scaleX, scaleY);
-
-            //Beinhaltet momentan "worldmap" was load-funktion beinhalten könnte
-            spLoadGame.Position = new Vector2f(xCoord, yCoord); 
-            spLoadGame.Scale = new Vector2f(scaleX, scaleY);
-
-            /* für später
-            SaveGameSprite.Position = new Vector2f(xCoord, yCoord); 
-            SaveGameSprite.Scale = new Vector2f(scaleX, scaleY);           
-            */
         }
 
-        public EGameStates update()
+ 
+ 
+
+   
+
+        public EGameStates update(GameTime time)
         {
             // Menüsteuerung
             
@@ -315,5 +319,7 @@ namespace IcyMazeRunner.Klassen.Menüs
             
             */
         }
+
+
     }
 }

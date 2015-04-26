@@ -15,6 +15,7 @@ namespace IcyMazeRunner.Klassen
             credits,
             controls,
             inGame,
+            pause,
             gameWon,
             gameOver,
             NextLevel,

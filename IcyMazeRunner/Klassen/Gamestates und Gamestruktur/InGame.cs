@@ -28,7 +28,7 @@ namespace IcyMazeRunner.Klassen
         Sprite spBackGround;
         Sprite spFogOfWar;
 
-        InGameMenu menu;
+        pause menu;
 
         private int typeOfDeath;
         /*
@@ -147,21 +147,12 @@ namespace IcyMazeRunner.Klassen
 
             if (!pRunner.getIsPressed() && Keyboard.IsKeyPressed(Keyboard.Key.Escape))
             {
-                menu = new InGameMenu(pRunner);
-                menu.loadContent();
+                vIngame = new View(new FloatRect(0, 0, pRunner.getXPosition() - 595, pRunner.getYPosition() - 360));
+                return EGameStates.pause;
                 pRunner.setIsPressed(true);
             }
 
-            if (menu != null)
-            {
-                
-                return menu.update();
-            }
 
-            if (menu != null && menu.getCloseMenu())
-            {
-                menu = null;
-            }
 
             if (get_Gap_Collision(pRunner, mMap))
             {

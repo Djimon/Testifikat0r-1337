@@ -64,7 +64,7 @@
     <Compile Include="Klassen\Gamestates und Gamestruktur\GameTime.cs" />
     <Compile Include="Klassen\Gamestates und Gamestruktur\gameWon.cs" />
     <Compile Include="Klassen\Gamestates und Gamestruktur\InGame.cs" />
-    <Compile Include="Klassen\Menüs\InGameMenu.cs" />
+    <Compile Include="Klassen\Menüs\Pause.cs" />
     <Compile Include="Klassen\Menüs\MainMenu.cs" />
     <Compile Include="Klassen\Gameplay\Maps\Map.cs" />
     <Compile Include="Klassen\Gameplay\Player.cs" />
